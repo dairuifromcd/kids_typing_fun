@@ -1,27 +1,27 @@
-# 星路打字实验室
+# Starpath Typing Lab
 
-给 8–10 岁孩子测试的一次性实体键盘打字纵向原型。
+A one-mission physical-keyboard typing prototype for children ages 8–10.
 
-## 这个原型验证什么
+## What this prototype tests
 
-- 孩子能否先读任务，再独立开始输入；
-- 按键、手指、移动路径三级提示是否能在停顿后提供恰到好处的帮助；
-- 温和的原地重试是否能让孩子继续，而不会产生惩罚感；
-- 任务结束的准确率是否容易理解；
-- 研究者能否在不收集身份或完整击键流的前提下，看见错键、停顿与提示使用摘要。
+- Can a child read the mission and begin independently?
+- Do the key, finger, and movement-path hints provide the right amount of help after a pause?
+- Does gentle retry feedback help the child continue without feeling punished?
+- Is the end-of-mission accuracy result easy to understand?
+- Can a researcher see mistakes, pauses, and hint usage without collecting identity data or a full keystroke stream?
 
-## 数据边界
+## Data boundary
 
-任务运行时不调用网络接口。研究事件只保存在当前浏览器的 `localStorage`，最多保留 12 次会话，并可从“本机记录”面板一键清除。项目没有账户、登录、数据库、分析 SDK 或云端同步。
+The mission makes no network requests while running. Research events stay in the current browser's `localStorage`, retain at most 12 sessions, and can be cleared from the “On-device data” panel. The project has no account, app login, database, analytics SDK, or cloud sync.
 
-## 本地运行
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-验证构建与产品边界：
+Validate the build and product boundaries:
 
 ```bash
 npm test

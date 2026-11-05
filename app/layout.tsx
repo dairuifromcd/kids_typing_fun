@@ -18,8 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const title = "星路打字实验室｜月光山谷任务";
-  const description = "给 8–10 岁孩子测试的本地实体键盘打字原型。";
+  const title = "Starpath Typing Lab | Moonlight Valley Mission";
+  const description = "A local-first physical keyboard typing prototype for children ages 8–10.";
 
   return {
     metadataBase: new URL(origin),
@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       type: "website",
-      images: [{ url: new URL("/og.png", origin).toString(), width: 1536, height: 1024 }],
+      images: [{ url: new URL("/og.png", origin).toString(), width: 1659, height: 948 }],
     },
     twitter: {
       card: "summary_large_image",
@@ -50,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>

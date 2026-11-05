@@ -31,11 +31,11 @@ test("server-renders the typing mission shell", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>星路打字实验室｜月光山谷任务<\/title>/i);
-  assert.match(html, /帮小狐狸/);
+  assert.match(html, /<title>Starpath Typing Lab \| Moonlight Valley Mission<\/title>/i);
+  assert.match(html, /Help the little fox/);
   assert.match(html, /guide the red fox to the quiet hill\./);
-  assert.match(html, /我准备好了/);
-  assert.match(html, /仅保存在这台设备/);
+  assert.match(html, /I(?:&apos;|&#x27;|')m ready/);
+  assert.match(html, /Saved on this device only/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
 
@@ -57,7 +57,7 @@ test("keeps research data device-local and the prototype narrow", async () => {
   assert.match(hosting, /"d1": null/);
   assert.match(hosting, /"r2": null/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
-  assert.match(layout, /lang="zh-CN"/);
+  assert.match(layout, /lang="en"/);
 
   await assert.rejects(readFile(new URL("../app/_sites-preview/SkeletonPreview.tsx", import.meta.url)));
   assert.equal(templateRoot.pathname.endsWith("/kids_typing_fun/"), true);

@@ -12,8 +12,8 @@ const KEY_ROWS = [
   ["z", "x", "c", "v", "b", "n", "m", ",", "."],
 ];
 
-type FingerSide = "左手" | "右手" | "双手";
-type FingerName = "小指" | "无名指" | "中指" | "食指" | "拇指";
+type FingerSide = "Left hand" | "Right hand" | "Both hands";
+type FingerName = "Pinky" | "Ring" | "Middle" | "Index" | "Thumb";
 
 type KeyGuide = {
   side: FingerSide;
@@ -23,35 +23,35 @@ type KeyGuide = {
 };
 
 const KEY_GUIDES: Record<string, KeyGuide> = {
-  q: { side: "左手", finger: "小指", home: "A", move: "从 A 向左上方" },
-  a: { side: "左手", finger: "小指", home: "A", move: "留在 A" },
-  z: { side: "左手", finger: "小指", home: "A", move: "从 A 向右下方" },
-  w: { side: "左手", finger: "无名指", home: "S", move: "从 S 向左上方" },
-  s: { side: "左手", finger: "无名指", home: "S", move: "留在 S" },
-  x: { side: "左手", finger: "无名指", home: "S", move: "从 S 向右下方" },
-  e: { side: "左手", finger: "中指", home: "D", move: "从 D 向左上方" },
-  d: { side: "左手", finger: "中指", home: "D", move: "留在 D" },
-  c: { side: "左手", finger: "中指", home: "D", move: "从 D 向右下方" },
-  r: { side: "左手", finger: "食指", home: "F", move: "从 F 向左上方" },
-  f: { side: "左手", finger: "食指", home: "F", move: "留在 F" },
-  v: { side: "左手", finger: "食指", home: "F", move: "从 F 向右下方" },
-  t: { side: "左手", finger: "食指", home: "F", move: "从 F 向右上方" },
-  g: { side: "左手", finger: "食指", home: "F", move: "从 F 向右移动" },
-  b: { side: "左手", finger: "食指", home: "F", move: "从 F 向右下方" },
-  y: { side: "右手", finger: "食指", home: "J", move: "从 J 向左上方" },
-  h: { side: "右手", finger: "食指", home: "J", move: "从 J 向左移动" },
-  n: { side: "右手", finger: "食指", home: "J", move: "从 J 向左下方" },
-  u: { side: "右手", finger: "食指", home: "J", move: "从 J 向右上方" },
-  j: { side: "右手", finger: "食指", home: "J", move: "留在 J" },
-  m: { side: "右手", finger: "食指", home: "J", move: "从 J 向左下方" },
-  i: { side: "右手", finger: "中指", home: "K", move: "从 K 向右上方" },
-  k: { side: "右手", finger: "中指", home: "K", move: "留在 K" },
-  ",": { side: "右手", finger: "中指", home: "K", move: "从 K 向左下方" },
-  o: { side: "右手", finger: "无名指", home: "L", move: "从 L 向右上方" },
-  l: { side: "右手", finger: "无名指", home: "L", move: "留在 L" },
-  ".": { side: "右手", finger: "无名指", home: "L", move: "从 L 向左下方" },
-  p: { side: "右手", finger: "小指", home: ";", move: "从 ; 向右上方" },
-  " ": { side: "双手", finger: "拇指", home: "空格", move: "拇指轻轻向下" },
+  q: { side: "Left hand", finger: "Pinky", home: "A", move: "up-left" },
+  a: { side: "Left hand", finger: "Pinky", home: "A", move: "stay here" },
+  z: { side: "Left hand", finger: "Pinky", home: "A", move: "down-right" },
+  w: { side: "Left hand", finger: "Ring", home: "S", move: "up-left" },
+  s: { side: "Left hand", finger: "Ring", home: "S", move: "stay here" },
+  x: { side: "Left hand", finger: "Ring", home: "S", move: "down-right" },
+  e: { side: "Left hand", finger: "Middle", home: "D", move: "up-left" },
+  d: { side: "Left hand", finger: "Middle", home: "D", move: "stay here" },
+  c: { side: "Left hand", finger: "Middle", home: "D", move: "down-right" },
+  r: { side: "Left hand", finger: "Index", home: "F", move: "up-left" },
+  f: { side: "Left hand", finger: "Index", home: "F", move: "stay here" },
+  v: { side: "Left hand", finger: "Index", home: "F", move: "down-right" },
+  t: { side: "Left hand", finger: "Index", home: "F", move: "up-right" },
+  g: { side: "Left hand", finger: "Index", home: "F", move: "right" },
+  b: { side: "Left hand", finger: "Index", home: "F", move: "down-right" },
+  y: { side: "Right hand", finger: "Index", home: "J", move: "up-left" },
+  h: { side: "Right hand", finger: "Index", home: "J", move: "left" },
+  n: { side: "Right hand", finger: "Index", home: "J", move: "down-left" },
+  u: { side: "Right hand", finger: "Index", home: "J", move: "up-right" },
+  j: { side: "Right hand", finger: "Index", home: "J", move: "stay here" },
+  m: { side: "Right hand", finger: "Index", home: "J", move: "down-left" },
+  i: { side: "Right hand", finger: "Middle", home: "K", move: "up-right" },
+  k: { side: "Right hand", finger: "Middle", home: "K", move: "stay here" },
+  ",": { side: "Right hand", finger: "Middle", home: "K", move: "down-left" },
+  o: { side: "Right hand", finger: "Ring", home: "L", move: "up-right" },
+  l: { side: "Right hand", finger: "Ring", home: "L", move: "stay here" },
+  ".": { side: "Right hand", finger: "Ring", home: "L", move: "down-left" },
+  p: { side: "Right hand", finger: "Pinky", home: ";", move: "up-right" },
+  " ": { side: "Both hands", finger: "Thumb", home: "SPACE", move: "press gently" },
 };
 
 type TypingErrorLog = {
@@ -104,7 +104,7 @@ const EMPTY_SUMMARY: LocalSummary = {
   hints: 0,
 };
 
-const FINGERS: FingerName[] = ["小指", "无名指", "中指", "食指", "拇指"];
+const FINGERS: FingerName[] = ["Pinky", "Ring", "Middle", "Index", "Thumb"];
 
 function readStorage(): StorageEnvelope {
   if (typeof window === "undefined") {
@@ -138,7 +138,7 @@ function summarizeLocalData(): LocalSummary {
 }
 
 function keyLabel(key: string) {
-  return key === " " ? "空格" : key.toUpperCase();
+  return key === " " ? "SPACE" : key.toUpperCase();
 }
 
 function createSession(): StoredSession {
@@ -161,7 +161,7 @@ export default function Home() {
   const [position, setPosition] = useState(0);
   const [errorCount, setErrorCount] = useState(0);
   const [hintLevel, setHintLevel] = useState(0);
-  const [feedback, setFeedback] = useState("慢慢来，先找到第一个字母。");
+  const [feedback, setFeedback] = useState("Take your time. Find the first letter.");
   const [isErrorFlash, setIsErrorFlash] = useState(false);
   const [dataOpen, setDataOpen] = useState(false);
   const [localSummary, setLocalSummary] = useState<LocalSummary>(EMPTY_SUMMARY);
@@ -250,7 +250,7 @@ export default function Home() {
     setPosition(0);
     setErrorCount(0);
     setHintLevel(0);
-    setFeedback("慢慢来，先找到第一个字母。");
+    setFeedback("Take your time. Find the first letter.");
     setPhase("type");
     window.setTimeout(() => practiceRef.current?.focus(), 0);
   }, []);
@@ -259,7 +259,7 @@ export default function Home() {
     setPhase("read");
     setPosition(0);
     setHintLevel(0);
-    setFeedback("慢慢来，先找到第一个字母。");
+    setFeedback("Take your time. Find the first letter.");
   }, []);
 
   const finishMission = useCallback(
@@ -274,7 +274,7 @@ export default function Home() {
         persistSession();
       }
       setPhase("done");
-      setFeedback("信号送到了！小狐狸找到回家的路了。");
+      setFeedback("The signal made it! The little fox found the way home.");
     },
     [persistSession],
   );
@@ -302,8 +302,8 @@ export default function Home() {
         window.setTimeout(() => setIsErrorFlash(false), 260);
         setFeedback(
           received === "Backspace"
-            ? `不用倒退，找到 ${keyLabel(expectedKey)} 再试一次。`
-            : `差一点。手指回到 ${guide.home}，再找 ${keyLabel(expectedKey)}。`,
+            ? `No need to go back. Find ${keyLabel(expectedKey)} and try again.`
+            : `Almost! Return to ${guide.home}, then find ${keyLabel(expectedKey)}.`,
         );
         if (sessionRef.current) {
           sessionRef.current.errors.push({
@@ -325,7 +325,7 @@ export default function Home() {
 
       setPosition(nextPosition);
       setHintLevel(0);
-      setFeedback(errorCount > 0 ? "找到了！继续按自己的节奏来。" : "很好，继续沿着星光走。 ");
+      setFeedback(errorCount > 0 ? "You found it! Keep going at your own pace." : "Nice work. Follow the starlight. ");
     },
     [addHint, dataOpen, errorCount, expectedKey, finishMission, guide.home, persistSession, phase, position],
   );
@@ -335,7 +335,7 @@ export default function Home() {
     const blockPaste = (event: ClipboardEvent) => {
       if (phase === "type") {
         event.preventDefault();
-        setFeedback("这次要用实体键盘，一个键一个键找到路线哦。");
+        setFeedback("Use the physical keyboard and find the path one key at a time.");
       }
     };
     window.addEventListener("paste", blockPaste);
@@ -367,45 +367,45 @@ export default function Home() {
   return (
     <main className="site-shell">
       <header className="topbar">
-        <a className="brand" href="#mission" aria-label="星路打字实验室首页">
+        <a className="brand" href="#mission" aria-label="Starpath Typing Lab home">
           <span className="brand-mark" aria-hidden="true">✦</span>
-          <span>星路打字实验室</span>
+          <span>Starpath Typing Lab</span>
         </a>
         <button className="data-button" type="button" onClick={() => setDataOpen(true)}>
           <span className="status-dot" aria-hidden="true" />
-          本机记录
+          On-device data
         </button>
       </header>
 
       <section className="mission-layout" id="mission">
-        <aside className="story-panel" aria-label="任务简报">
-          <div className="eyebrow">任务 01 · 月光山谷</div>
+        <aside className="story-panel" aria-label="Mission briefing">
+          <div className="eyebrow">MISSION 01 · MOONLIGHT VALLEY</div>
           <div className="fox-badge" aria-hidden="true">🦊</div>
-          <p className="story-kicker">一条信号正在等待发送</p>
-          <h1>帮小狐狸<br />找到回家的路</h1>
+          <p className="story-kicker">A signal is waiting to be sent</p>
+          <h1>Help the little fox<br />find the way home</h1>
           <p className="story-copy">
-            夜色里看不清路。把这句英文信号准确地输入，山顶的灯就会亮起来。
+            It is hard to see in the dark. Type the signal carefully, and the hilltop light will shine.
           </p>
           <div className="calm-note">
             <span aria-hidden="true">☼</span>
-            <p><strong>不用比速度。</strong><br />找准每一个键，就已经做得很好。</p>
+            <p><strong>No need to race.</strong><br />Finding each key is the win.</p>
           </div>
         </aside>
 
         <section className={`practice-panel ${isErrorFlash ? "error-flash" : ""}`} aria-live="polite">
           {phase === "read" && (
             <div className="briefing-state">
-              <div className="step-label"><span>1</span> 先读一遍信号</div>
+              <div className="step-label"><span>1</span> READ THE SIGNAL</div>
               <p className="reading-passage">{TASK_TEXT}</p>
-              <div className="read-checks" aria-label="开始前准备">
-                <span>✓ 双脚放稳</span>
-                <span>✓ 食指轻放 F 和 J</span>
-                <span>✓ 看完再开始</span>
+              <div className="read-checks" aria-label="Before you begin">
+                <span>✓ Feet comfy</span>
+                <span>✓ Index fingers on F and J</span>
+                <span>✓ Read first, then type</span>
               </div>
               <button className="primary-button" type="button" onClick={startMission}>
-                我准备好了 <span aria-hidden="true">→</span>
+                I&apos;m ready <span aria-hidden="true">→</span>
               </button>
-              <p className="keyboard-only-note">请使用电脑的实体英文键盘完成任务</p>
+              <p className="keyboard-only-note">Use a physical English keyboard for this mission</p>
             </div>
           )}
 
@@ -415,13 +415,13 @@ export default function Home() {
               ref={practiceRef}
               tabIndex={0}
               onClick={() => practiceRef.current?.focus()}
-              aria-label={`打字任务。当前需要输入 ${keyLabel(expectedKey)}`}
+              aria-label={`Typing mission. Type ${keyLabel(expectedKey)} next.`}
             >
               <div className="task-meta">
-                <div className="step-label"><span>2</span> 输入信号</div>
+                <div className="step-label"><span>2</span> TYPE THE SIGNAL</div>
                 <div className="progress-copy">{position} / {TASK_TEXT.length}</div>
               </div>
-              <div className="progress-track" aria-label={`任务完成 ${progress}%`}>
+              <div className="progress-track" aria-label={`Mission ${progress}% complete`}>
                 <div className="progress-fill" style={{ width: `${progress}%` }} />
               </div>
 
@@ -446,10 +446,10 @@ export default function Home() {
               </div>
 
               <div className="guide-grid">
-                <section className="keyboard-card" aria-label="键盘提示">
+                <section className="keyboard-card" aria-label="Keyboard hint">
                   <div className="guide-heading">
-                    <span>键盘</span>
-                    <strong>{hintLevel >= 1 ? `找 ${keyLabel(expectedKey)}` : "先自己找一找"}</strong>
+                    <span>KEYBOARD</span>
+                    <strong>{hintLevel >= 1 ? `Find ${keyLabel(expectedKey)}` : "Try on your own"}</strong>
                   </div>
                   <div className="keyboard" aria-hidden="true">
                     {KEY_ROWS.map((row, rowIndex) => (
@@ -465,25 +465,25 @@ export default function Home() {
                       </div>
                     ))}
                     <div className="key-row space-row">
-                      <span className={`key space-key ${hintLevel >= 1 && expectedKey === " " ? "target-key" : ""}`}>空格</span>
+                      <span className={`key space-key ${hintLevel >= 1 && expectedKey === " " ? "target-key" : ""}`}>SPACE</span>
                     </div>
                   </div>
                 </section>
 
-                <section className="finger-card" aria-label="手指提示">
+                <section className="finger-card" aria-label="Finger hint">
                   <div className="guide-heading">
-                    <span>手指</span>
-                    <strong>{hintLevel >= 2 ? `${guide.side}${guide.finger}` : "保持手位"}</strong>
+                    <span>FINGER</span>
+                    <strong>{hintLevel >= 2 ? `${guide.side} · ${guide.finger}` : "Keep your home position"}</strong>
                   </div>
                   <div className="hands" aria-hidden="true">
-                    {["左手", "右手"].map((side) => (
+                    {["Left hand", "Right hand"].map((side) => (
                       <div className="hand" key={side}>
                         <span className="hand-name">{side}</span>
                         <div className="fingers">
                           {FINGERS.map((finger) => {
                             const active =
                               hintLevel >= 2 &&
-                              (guide.side === side || guide.side === "双手") &&
+                              (guide.side === side || guide.side === "Both hands") &&
                               guide.finger === finger;
                             return (
                               <span className={`finger ${active ? "active-finger" : ""}`} key={finger}>
@@ -505,7 +505,7 @@ export default function Home() {
                         <span className="path-key target-path-key">{keyLabel(expectedKey)}</span>
                       </>
                     ) : (
-                      <span className="path-placeholder">停一下，移动路线就会出现</span>
+                      <span className="path-placeholder">Pause for a moment to see the movement path</span>
                     )}
                   </div>
                 </section>
@@ -519,26 +519,26 @@ export default function Home() {
                 <span>✦</span>
                 <div>🦊</div>
               </div>
-              <div className="step-label centered"><span>✓</span> 信号已送达</div>
-              <h2>山顶的灯亮了！</h2>
+              <div className="step-label centered"><span>✓</span> SIGNAL DELIVERED</div>
+              <h2>The hilltop light is on!</h2>
               <p>{feedback}</p>
               <div className="result-card">
-                <span>这次准确率</span>
+                <span>YOUR ACCURACY</span>
                 <strong>{accuracy}%</strong>
-                <p>{accuracy >= 90 ? "你把大多数路标都找对了。" : "你坚持找完了整条路线，这很重要。"}</p>
+                <p>{accuracy >= 90 ? "You found nearly every trail marker." : "You stayed with the whole path. That matters."}</p>
               </div>
               <button className="secondary-button" type="button" onClick={returnToBriefing}>
-                再走一次这条路
+                Try this path again
               </button>
-              <p className="result-note">这里不排名，也不会因为错键挡住任务完成。</p>
+              <p className="result-note">No rankings. A wrong key never stops the mission.</p>
             </div>
           )}
         </section>
       </section>
 
       <footer className="privacy-strip">
-        <span><strong>仅保存在这台设备</strong> · 不登录 · 不联网 · 不上传</span>
-        <span>只记错键、停顿与提示使用，不记录完整正确输入</span>
+        <span><strong>Saved on this device only</strong> · No account · No upload</span>
+        <span>Stores mistakes, pauses, and hints — never the full correct key stream</span>
       </footer>
 
       {dataOpen && (
@@ -550,24 +550,24 @@ export default function Home() {
             aria-labelledby="data-title"
             onMouseDown={(event) => event.stopPropagation()}
           >
-            <button className="close-button" type="button" aria-label="关闭本机记录" onClick={() => setDataOpen(false)}>×</button>
-            <div className="eyebrow">透明的本地记录</div>
-            <h2 id="data-title">这台设备记住了什么？</h2>
+            <button className="close-button" type="button" aria-label="Close on-device data" onClick={() => setDataOpen(false)}>×</button>
+            <div className="eyebrow">CLEAR, LOCAL RESEARCH DATA</div>
+            <h2 id="data-title">What does this device remember?</h2>
             <p className="data-intro">
-              只用来观察提示是否容易理解。没有姓名、账号、录音，也不会发送到网络。
+              Only enough to learn whether the hints make sense. No names, accounts, recordings, or network uploads.
             </p>
             <div className="data-stats">
-              <div><strong>{localSummary.sessions}</strong><span>次完成</span></div>
-              <div><strong>{localSummary.errors}</strong><span>个错键</span></div>
-              <div><strong>{localSummary.pauses}</strong><span>次停顿</span></div>
-              <div><strong>{localSummary.hints}</strong><span>次提示</span></div>
+              <div><strong>{localSummary.sessions}</strong><span>missions</span></div>
+              <div><strong>{localSummary.errors}</strong><span>mistakes</span></div>
+              <div><strong>{localSummary.pauses}</strong><span>pauses</span></div>
+              <div><strong>{localSummary.hints}</strong><span>hints</span></div>
             </div>
             <ul className="data-list">
-              <li><span>会保存</span>错按了哪个键、在哪一步停顿、出现了哪一级提示</li>
-              <li><span>不会保存</span>姓名、完整正确击键流、速度排名或真实手指动作</li>
+              <li><span>Saved</span>Which wrong key was pressed, where a pause happened, and which hint appeared</li>
+              <li><span>Never saved</span>Names, the full correct key stream, speed rankings, or actual finger movement</li>
             </ul>
-            {!storageAvailable && <p className="storage-warning">浏览器阻止了本地保存，本次任务仍可继续。</p>}
-            <button className="clear-button" type="button" onClick={clearLocalData}>清除这台设备上的记录</button>
+            {!storageAvailable && <p className="storage-warning">Your browser blocked local saving. You can still finish the mission.</p>}
+            <button className="clear-button" type="button" onClick={clearLocalData}>Clear data from this device</button>
           </section>
         </div>
       )}
