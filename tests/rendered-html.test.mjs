@@ -33,8 +33,11 @@ test("server-renders the typing mission shell", async () => {
   const html = await response.text();
   assert.match(html, /<title>Starpath Typing Lab \| Moonlight Valley Mission<\/title>/i);
   assert.match(html, /Help the little fox/);
-  assert.match(html, /guide the red fox to the quiet hill\./);
-  assert.match(html, /I(?:&apos;|&#x27;|')m ready/);
+  assert.match(html, /the sun has set\. a little fox is lost in the woods\./);
+  assert.match(html, /Start the story/);
+  assert.match(html, /Home together/);
+  assert.match(html, /Stars in the grass/);
+  assert.match(html, /READ FIRST/);
   assert.match(html, /Saved on this device only/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });

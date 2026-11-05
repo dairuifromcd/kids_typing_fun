@@ -1033,3 +1033,251 @@ a:focus-visible,
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Keep the story and its typing aids readable as the journey grows. */
+.story-steps {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: grid;
+  gap: 9px;
+}
+.story-steps li { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 14px; }
+.story-steps li > span { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid var(--line); border-radius: 50%; font-size: 12px; flex-shrink: 0; }
+.story-steps .active { color: var(--night); font-weight: 800; }
+.story-steps .active > span { background: var(--sun); border-color: var(--sun); }
+.story-steps .finished > span { background: var(--mint-dark); color: white; border-color: var(--mint-dark); }
+.chapter-title { margin: 22px 0 0; color: var(--night); font-size: 30px; line-height: 1.2; }
+.chapter-reward { color: var(--mint-dark); font-size: 16px; line-height: 1.6; margin: 0 0 28px; }
+.reading-passage { font-size: clamp(25px, 2.5vw, 34px); margin: 24px 0; }
+.chapter-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 24px; }
+.chapter-heading h2 { font-size: 20px; margin: 0; }
+.chapter-heading > span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.typing-passage { font-size: clamp(25px, 2.2vw, 32px); margin-top: 16px; overflow-wrap: anywhere; }
+.character.pending { color: #707b77; }
+.pause-button { border: 1px solid var(--night); border-radius: 8px; padding: 8px 14px; color: var(--night); background: transparent; cursor: pointer; font-size: 14px; }
+.guide-grid { grid-template-columns: 1fr; }
+.guide-heading { flex-wrap: wrap; }
+.guide-heading > span, .guide-heading strong { font-size: 14px; }
+.finger-card .hands { max-width: 350px; margin: 0 auto; }
+.right-hand { flex-direction: row-reverse; }
+.hand-name, .finger, .path-key, .path-copy, .path-placeholder, .path-arrow { font-size: 12px; }
+.movement-path { flex-wrap: wrap; }
+.key { width: clamp(24px, 3vw, 38px); font-size: 12px; }
+.key.space-key { font-size: 12px; }
+.briefing-state, .done-state { padding: clamp(28px, 4vw, 56px); }
+@media (min-width: 1300px) {
+  .guide-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 1030px) {
+  .story-panel .story-steps { grid-column: 2; grid-template-columns: 1fr 1fr; }
+  .story-panel h1 { font-size: 34px; }
+  .mission-layout { padding-top: 28px; }
+  .story-copy, .calm-note { display: none !important; }
+  .story-steps { gap: 6px; margin-top: 16px; }
+}
+@media (max-width: 720px) {
+  .story-steps { grid-template-columns: 1fr 1fr; }
+  .story-steps li { font-size: 12px; }
+  .chapter-heading { flex-wrap: wrap; }
+  .chapter-title { font-size: 25px; }
+  .typing-passage { padding: 18px 12px; font-size: 25px; }
+  .key { width: clamp(20px, 6vw, 36px); }
+  .key-row { gap: 3px; }
+}
+@media (min-width: 760px) and (max-width: 1030px) {
+  .guide-grid { grid-template-columns: 1.1fr 1fr; }
+  .keyboard-card, .finger-card { padding: 16px 12px; }
+}
+@media (max-width: 1030px) {
+  .phase-type .story-panel { display: flex; gap: 14px; padding: 0; }
+  .phase-type .story-panel h1 { font-size: 22px; }
+  .phase-type .story-panel .eyebrow, .phase-type .story-kicker, .phase-type .story-steps { display: none; }
+  .phase-type .fox-badge { width: 42px; height: 42px; font-size: 25px; margin: 0; flex-shrink: 0; }
+  .phase-type .mission-layout { gap: 18px; padding-top: 18px; }
+  .briefing-state { min-height: 480px; }
+  .phase-read .practice-panel { min-height: 480px; }
+}
+.typing-word { display: inline-block; white-space: nowrap; }
+
+.journey { margin: 20px 24px 0; border-radius: 16px; overflow: hidden; background: var(--night); color: var(--paper); }
+.journey-scene { position: relative; height: 190px; background: #173b42 url('/journey-panorama.png') center 78% / cover no-repeat; overflow: hidden; }
+.journey-light { position: absolute; inset: 0; background: rgba(3, 18, 28, .15); transition: background 600ms ease; }
+.chapter-4 .journey-light { background: rgba(3, 18, 28, .5); }
+.chapter-5 .journey-light, .journey-complete .journey-light { background: rgba(244, 201, 93, .10); }
+.journey-location { position: absolute; top: 12px; left: 12px; padding: 6px 12px; border-radius: 99px; background: rgba(9, 32, 38, .85); font-size: 14px; }
+.journey-fox { position: absolute; bottom: 8%; display: flex; align-items: end; transform: translateX(-50%); transition: left 220ms ease; filter: drop-shadow(0 3px 2px rgba(0,0,0,.5)); }
+.fox-avatar { display: inline-block; font-size: 40px; line-height: 1.2; animation: fox-step 260ms ease-out; }
+.fox-friend { position: absolute; right: 100%; bottom: 0; font-size: 23px; }
+.fox-lights { position: absolute; left: 65%; bottom: 85%; font-size: 24px; }
+.home-party { position: absolute; bottom: 7%; right: 13%; font-size: 25px; }
+.journey-caption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 14px; padding: 12px 16px 6px; font-size: 14px; line-height: 1.4; }
+.journey-caption > span:last-child { color: var(--mint); font-size: 12px; }
+.journey-stops { display: flex; justify-content: space-between; gap: 6px; padding: 4px 16px 12px; }
+.journey-stops span { display: grid; place-items: center; width: 23px; height: 23px; border: 1px solid #829b9b; border-radius: 50%; font-size: 12px; color: #ceded8; }
+.journey-stops .reached { background: var(--mint); color: var(--night); border-color: var(--mint); }
+.journey-stops .here { background: var(--sun); color: var(--night); border-color: var(--sun); }
+.save-warning { padding: 12px 20px; margin: 12px 24px 0; background: #fff3ed; color: #973c30; border: 1px solid #ca4f40; border-radius: 8px; font-size: 14px; }
+.resume-state > p { line-height: 1.6; }
+.primary-button:disabled { opacity: .6; cursor: wait; }
+.practice-panel, .typing-state, .briefing-state, .done-state { min-height: 0; }
+.briefing-state, .done-state { padding: 32px; }
+.phase-read .practice-panel { min-height: 0; }
+.typing-state { padding: 24px; }
+.typing-passage { min-height: 0; padding: 18px; margin: 14px 0 10px; }
+.chapter-heading { margin-top: 12px; }
+.feedback-line { min-height: 38px; }
+.phase-type .story-panel { align-self: start; }
+@keyframes fox-step { 50% { transform: translateY(-6px) rotate(-4deg); } }
+@media (max-width: 1030px) {
+  .phase-type .story-panel { display: none; }
+  .phase-type .mission-layout { padding-top: 14px; }
+  .journey-scene { height: 155px; }
+}
+@media (max-width: 720px) {
+  .journey { margin: 12px 12px 0; }
+  .journey-scene { height: 150px; }
+  .journey-caption { padding: 10px 12px 6px; }
+  .typing-state { padding: 18px 14px; }
+  .briefing-state, .done-state { padding: 26px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey-fox, .journey-light { transition: none; }
+  .fox-avatar { animation: none; }
+}
+@media (max-width: 1030px) {
+  .phase-type .journey-scene { height: 125px; }
+}
+
+/* A fitted desktop play area. Small/zoomed windows retain readable document flow. */
+@media (min-width: 48rem) and (min-height: 40rem) {
+  .site-shell {
+    height: 100dvh;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: 54px minmax(0, 1fr) 28px;
+    padding: 0 clamp(16px, 2vw, 32px) 10px;
+  }
+  .topbar { min-height: 0; }
+  .mission-layout, .phase-type .mission-layout {
+    min-height: 0;
+    padding: 10px 0 12px;
+    gap: 24px;
+    grid-template-columns: minmax(200px, .65fr) minmax(0, 2fr);
+  }
+  .story-panel, .phase-type .story-panel { display: block; min-width: 0; padding: 8px 0; }
+  .story-panel h1 { font-size: clamp(28px, 2.8vw, 40px); line-height: 1.08; }
+  .story-kicker { margin-bottom: 8px; }
+  .fox-badge { width: 48px; height: 48px; margin: 18px 0; font-size: 28px; }
+  .story-copy { font-size: 15px; line-height: 1.5; margin-top: 14px; }
+  .calm-note { margin-top: 18px; padding-top: 12px; }
+  .story-steps { margin-top: 18px; gap: 7px; }
+  .story-steps li { font-size: 13px; }
+  .story-steps li > span { width: 22px; height: 22px; }
+  .practice-panel {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    box-shadow: 5px 6px 0 rgba(23, 59, 66, .14);
+  }
+  .practice-panel.error-flash { box-shadow: 5px 6px 0 rgba(239, 106, 87, .18); }
+  .journey { flex: 1 1 180px; min-height: 136px; max-height: 32dvh; display: grid; grid-template-rows: minmax(60px, 1fr) auto auto; margin: 12px 14px 0; }
+  .site-shell .journey-scene { height: auto; }
+  .journey-location { top: 7px; left: 8px; padding: 4px 9px; }
+  .journey-caption { padding: 7px 12px 3px; }
+  .journey-stops { padding: 2px 12px 7px; }
+  .journey-stops span { width: 20px; height: 20px; }
+  .fox-avatar { font-size: 34px; }
+  .typing-state { flex: 0 0 auto; padding: 12px 14px; }
+  .task-meta { gap: 12px; }
+  .pause-button { padding: 6px 12px; }
+  .chapter-heading { margin-top: 6px; }
+  .chapter-heading h2 { font-size: 18px; }
+  .typing-passage { font-size: clamp(24px, 2vw, 28px); line-height: 1.35; padding: 12px 14px; margin: 8px 0 5px; }
+  .feedback-line { min-height: 32px; font-size: 14px; }
+  .feedback-icon { width: 24px; height: 24px; flex-shrink: 0; }
+  .guide-grid { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
+  .keyboard-card, .finger-card { padding: 10px 12px; }
+  .guide-heading { gap: 4px 10px; margin-bottom: 8px; }
+  .guide-heading > span, .guide-heading strong { font-size: 13px; }
+  .key-row { gap: 3px; margin-bottom: 4px; }
+  .key { width: min(2.4vw, 30px); }
+  .key.space-key { height: 22px; }
+  .hand { padding: 7px 6px 5px; }
+  .hand-name { margin-bottom: 4px; }
+  .movement-path { min-height: 36px; margin-top: 7px; padding: 4px; }
+  .briefing-state, .done-state { flex: 1 1 auto; padding: 16px 24px 20px; }
+  .chapter-title { font-size: 26px; margin-top: 12px; }
+  .chapter-reward { margin-bottom: 12px; }
+  .reading-passage { font-size: clamp(25px, 2.2vw, 32px); margin: 14px 0; }
+  .primary-button { margin-top: 18px; padding: 12px 22px; }
+  .keyboard-only-note { margin-top: 14px; }
+  .signal-orbit { width: 56px; height: 56px; margin-bottom: 10px; }
+  .signal-orbit > div { font-size: 32px; }
+  .done-state h2 { font-size: 30px; margin: 12px 0 8px; }
+  .result-card { margin: 14px 0; padding: 12px 22px; }
+  .result-card strong { font-size: 40px; }
+  .result-note { margin-top: 12px !important; }
+  .privacy-strip { min-height: 0; padding: 0; flex-direction: row; align-items: center; gap: 12px; }
+  .save-warning { margin: 8px 14px 0; padding: 6px 10px; }
+  .data-modal { padding: 28px; }
+  .data-modal h2 { font-size: 28px; }
+  .data-stats { margin: 18px 0; }
+  .data-list li { padding: 9px 0; }
+}
+@media (min-width: 48rem) and (max-width: 70rem) and (min-height: 40rem) {
+  .mission-layout, .phase-type .mission-layout { grid-template-columns: minmax(0, 1fr); }
+  .story-panel, .phase-type .story-panel { display: none; }
+  .key { width: min(3.5vw, 30px); }
+}
+@media (min-width: 48rem) and (min-height: 40rem) and (max-height: 46rem) {
+  .story-copy, .calm-note { display: none !important; }
+  .journey { min-height: 118px; max-height: 25dvh; }
+  .typing-passage { font-size: 24px; padding: 9px 12px; }
+  .reading-passage { font-size: 25px; margin: 10px 0; }
+  .chapter-reward { font-size: 14px; margin-bottom: 8px; }
+  .briefing-state, .done-state { padding-top: 12px; padding-bottom: 14px; }
+  .done-state .signal-orbit { display: none; }
+  .privacy-strip > span:last-child { display: none; }
+}
+@media (min-width: 48rem) and (min-height: 40rem) and (max-height: 46rem) {
+  .typing-state { padding: 10px 14px; }
+  .keyboard-card, .finger-card { padding: 8px 10px; }
+  .key { width: min(3vw, 26px); }
+  .hand { padding: 4px 6px 3px; }
+  .movement-path { min-height: 32px; margin-top: 4px; padding: 2px; }
+}
+
+/* Starting keys stay visible even before an adaptive hint is needed. */
+.key { position: relative; }
+.key.finger-start-key:not(.target-key) { outline: 2px solid var(--mint-dark); outline-offset: 1px; }
+.bump-key::after { content: ""; position: absolute; bottom: 2px; left: calc(50% - 4px); width: 8px; height: 2px; border-radius: 1px; background: currentColor; }
+.finger { display: flex; flex-direction: column; justify-content: center; gap: 1px; }
+.finger-initial { font-size: 10px; line-height: 1; }
+.finger strong { font-size: 13px; line-height: 1; }
+.home-setup { width: min(370px, 100%); margin: 2px 0 10px; }
+.home-setup p { margin: 6px 0; font-size: 13px; color: var(--muted); }
+.home-setup + .read-checks { display: none; }
+@media (min-width: 48rem) and (min-height: 40rem) and (max-height: 46rem) {
+  .phase-read:has(.home-setup) .journey { flex: 0 0 118px; min-height: 118px; max-height: 118px; }
+  .home-setup { margin-bottom: 2px; }
+  .home-setup p { margin: 4px 0; }
+}
+
+/* Characters appear in the scene when they enter the story. */
+.story-character { position: absolute; bottom: 10%; display: flex; flex-direction: column; align-items: center; transform: translateX(-50%); }
+.stream-frog { left: 43%; }
+.waiting-mouse { left: 52%; }
+.waiting-family { left: 83%; }
+.scene-animal { position: relative; font-size: 38px; line-height: 1; filter: drop-shadow(0 2px 2px rgba(0,0,0,.45)); }
+.character-speech { padding: 3px 8px; border-radius: 8px 8px 8px 2px; background: #fffdf4; color: #173b42; font-size: 12px; font-weight: 750; line-height: 1.25; white-space: nowrap; }
+.mouse-twig { position: absolute; left: 0; bottom: -3px; font-size: 30px; }
+.scene-family { font-size: 28px; line-height: 1.2; }
+.firefly-friends { position: absolute; left: 56%; top: 35%; font-size: 24px; letter-spacing: 12px; }
+@media (min-width: 48rem) and (min-height: 40rem) and (max-height: 46rem) {
+  .scene-animal { font-size: 30px; }
+  .story-character { bottom: 5%; }
+  .character-speech { padding: 2px 6px; }
+}
